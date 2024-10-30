@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+  get "pages/about"
+  get "planets/index"
+  get "planets/show"
+  get "planets/rails"
+  get "planets/generate"
+  get "planets/controller"
+  get "planets/Starships"
+  get "planets/index"
+  get "planets/show"
+  get "people/index"
+  get "people/show"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
