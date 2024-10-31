@@ -1,4 +1,11 @@
 <h1>People</h1>
+<nav>
+  <ul>
+    <li><%= link_to 'People', people_path %></li>
+    <li><%= link_to 'Planets', planets_path %></li>
+    <li><%= link_to 'Starships', starships_path %></li>
+  </ul>
+</nav>
 <%= form_tag people_path, method: :get do %>
   <%= label_tag :query, "Search People" %>
   <%= text_field_tag :query, params[:query] %>
