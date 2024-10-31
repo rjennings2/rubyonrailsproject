@@ -1,15 +1,21 @@
-<h1>Planets</h1>
-<nav>
-  <ul>
-    <li><%= link_to 'About', about_path %></li>
-    <li><%= link_to 'People', people_path %></li>
-    <li><%= link_to 'Planets', planets_path %></li>
-    <li><%= link_to 'Starships', starships_path %></li>
+<div class="container">
+  <h1 class="text-center">Planets</h1>
+
+  <nav>
+    <ul class="nav justify-content-center mb-4">
+      <li class="nav-item"><%= link_to 'About', about_path, class: 'nav-link' %></li>
+      <li class="nav-item"><%= link_to 'People', people_path, class: 'nav-link' %></li>
+      <li class="nav-item"><%= link_to 'Planets', planets_path, class: 'nav-link' %></li>
+      <li class="nav-item"><%= link_to 'Starships', starships_path, class: 'nav-link' %></li>
+    </ul>
+  </nav>
+
+  <ul class="list-unstyled">
+    <% @planets.each do |planet| %>
+      <li><%= link_to planet.name, planet_path(planet) %></li>
+    <% end %>
   </ul>
-</nav>
-<ul>
-  <% @planets = Planet.all %>
-  <% @planets.each do |planet| %>
-    <li><%= link_to planet.name, planet_path(planet) %></li>
-  <% end %>
-</ul>
+
+    <%= paginate @planets, class: 'pagination justify-content-center' %>
+  </div>
+</div>

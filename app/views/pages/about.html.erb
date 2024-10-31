@@ -1,21 +1,27 @@
-<h1>About</h1>
-<nav>
-  <ul>
-    <li><%= link_to 'About', about_path %></li>
-    <li><%= link_to 'People', people_path %></li>
-    <li><%= link_to 'Planets', planets_path %></li>
-    <li><%= link_to 'Starships', starships_path %></li>
-  </ul>
-</nav>
-<p>This is a Star Wars project where you can explore characters, planets, and starships!</p>
-<p>This project pulls data from two sources, Star Wars API SWAPI, and faker. The data for the Star Wars characters and
-  their home planets are pulled from SWAPI, whereas the starship data is from faker. Unfortunatley faker does not
-  have a Star Wars module, so you may see your favourite character driving a toyota corolla spaceship...</p>
-<p>The data is stored in three database tables, people (the Star Wars characters), Planets, and Spaceships.
-  The people table has the name of the character, their height, mass, hair colour, and an association to the Planets
-  table, their homeworld. The Planets table has the name of the planet, it's terrain, and population, as well as inhabitants, which
-  is linked to the People table through a one to many relationship. Each character inhabits one Planet. The Starships table columns include the name of the ship, the model, and the number of crew members.
-  It has a many to many association with the People table as it stores each crew member's name, can have multiple crew members, and crew members
-  can be associated with multiple ships.</p>
-  <p>Below is the database ERD to represent this information.</p>
-  <%= image_tag 'ERD_Screenshot.png', alt: 'Database ERD', class: 'about-image' %>
+<div class="container">
+  <h1 class="text-center">About</h1>
+
+  <nav>
+    <ul class="nav justify-content-center">
+      <li class="nav-item"><%= link_to 'About', about_path, class: 'nav-link' %></li>
+      <li class="nav-item"><%= link_to 'People', people_path, class: 'nav-link' %></li>
+      <li class="nav-item"><%= link_to 'Planets', planets_path, class: 'nav-link' %></li>
+      <li class="nav-item"><%= link_to 'Starships', starships_path, class: 'nav-link' %></li>
+    </ul>
+  </nav>
+
+  <div class="row">
+    <div class="col-md-12">
+      <p>This is a Star Wars project where you can explore characters, planets, and starships!</p>
+      <p>This project pulls data from two sources, Star Wars API SWAPI, and faker. The data for the Star Wars characters and their home planets are pulled from SWAPI, whereas the starship data is from faker. Unfortunately, faker does not have a Star Wars module, so you may see your favorite character driving a Toyota Corolla spaceship...</p>
+      <p>The data is stored in three database tables: people (the Star Wars characters), planets, and starships. The people table has the name of the character, their height, mass, hair color, and an association to the planets table, their homeworld. The planets table has the name of the planet, its terrain, and population, as well as inhabitants, which is linked to the people table through a one-to-many relationship. Each character inhabits one planet. The starships table columns include the name of the ship, the model, and the number of crew members. It has a many-to-many association with the people table as it stores each crew member's name, can have multiple crew members, and crew members can be associated with multiple ships.</p>
+      <p>Below is the database ERD to represent this information.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <%= image_tag 'ERD_Screenshot.png', alt: 'Database ERD', class: 'img-fluid' %>
+    </div>
+  </div>
+</div>

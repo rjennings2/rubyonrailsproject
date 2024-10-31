@@ -1,6 +1,6 @@
 class PlanetsController < ApplicationController
   def index
-    @planets = Planet.all
+    @planets = Planet.page(params[:page]).per(10)
   end
 
   def show
@@ -8,22 +8,5 @@ class PlanetsController < ApplicationController
     if @planet.nil?
       redirect_to planets_path, alert: "Planet not found."
     end
-  end
-  def rails
-  end
-
-  def generate
-  end
-
-  def controller
-  end
-
-  def Starships
-  end
-
-  def index
-  end
-
-  def show
   end
 end

@@ -1,6 +1,6 @@
 class StarshipsController < ApplicationController
   def index
-    @starships = Starship.all
+    @starships = Starship.page(params[:page]).per(10)
   end
 
   def show

@@ -1,14 +1,25 @@
 <h1>Starships</h1>
 <nav>
-  <ul>
-    <li><%= link_to 'About', about_path %></li>
-    <li><%= link_to 'People', people_path %></li>
-    <li><%= link_to 'Planets', planets_path %></li>
-    <li><%= link_to 'Starships', starships_path %></li>
+  <ul class="nav">
+    <li class="nav-item"><%= link_to 'About', about_path, class: 'nav-link' %></li>
+    <li class="nav-item"><%= link_to 'People', people_path, class: 'nav-link' %></li>
+    <li class="nav-item"><%= link_to 'Planets', planets_path, class: 'nav-link' %></li>
+    <li class="nav-item"><%= link_to 'Starships', starships_path, class: 'nav-link' %></li>
   </ul>
 </nav>
-<ul>
+
+<div class="row">
   <% @starships.each do |starship| %>
-    <li><%= link_to starship.name, starship_path(starship) %></li>
+    <div class="col-md-4 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"><%= link_to starship.name, starship_path(starship) %></h5>
+          <p class="card-text">Model: <%= starship.model %></p>
+          <p class="card-text">Crew: <%= starship.crew %></p>
+        </div>
+      </div>
+    </div>
   <% end %>
-</ul>
+</div>
+
+<%= paginate @starships %>

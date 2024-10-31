@@ -1,26 +1,41 @@
-<h1>People</h1>
-<nav>
-  <ul>
-    <li><%= link_to 'About', about_path %></li>
-    <li><%= link_to 'People', people_path %></li>
-    <li><%= link_to 'Planets', planets_path %></li>
-    <li><%= link_to 'Starships', starships_path %></li>
-  </ul>
-</nav>
-<%= form_tag people_path, method: :get do %>
-  <%= label_tag :query, "Search People" %>
-  <%= text_field_tag :query, params[:query] %>
-  <%= submit_tag "Search" %>
-<% end %>
-<%= form_tag people_path, method: :get do %>
-  <%= label_tag :planet_id, "Select Planet" %>
-  <%= select_tag :planet_id, options_from_collection_for_select(Planet.all, :id, :name, params[:planet_id]) %>
-  <%= submit_tag "Filter" %>
-<% end %>
-<ul>
-  <% @people.each do |person| %>
-    <li><%= link_to person.name, person_path(person) %></li>
-  <% end %>
-</ul>
+<div class="container">
+  <h1 class="text-center">People</h1>
 
-<%= paginate @people %>
+  <nav>
+    <ul class="nav justify-content-center">
+      <li class="nav-item"><%= link_to 'About', about_path, class: 'nav-link' %></li>
+      <li class="nav-item"><%= link_to 'People', people_path, class: 'nav-link' %></li>
+      <li class="nav-item"><%= link_to 'Planets', planets_path, class: 'nav-link' %></li>
+      <li class="nav-item"><%= link_to 'Starships', starships_path, class: 'nav-link' %></li>
+    </ul>
+  </nav>
+
+  <div class="row mb-4">
+    <div class="col-md-6">
+      <%= form_tag people_path, method: :get, class: 'form-inline' do %>
+        <div class="form-group">
+          <%= label_tag :query, "Search People", class: 'mr-2' %>
+          <%= text_field_tag :query, params[:query], class: 'form-control mr-2' %>
+          <%= submit_tag "Search", class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-md-6">
+      <%= form_tag people_path, method: :get, class: 'form-inline' do %>
+        <div class="form-group">
+          <%= label_tag :planet_id, "Select Planet", class: 'mr-2' %>
+          <%= select_tag :planet_id, options_from_collection_for_select(Planet.all, :id, :name, params[:planet_id]), class: 'form-control mr-2' %>
+          <%= submit_tag "Filter", class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <ul class="list-unstyled">
+    <% @people.each do |person| %>
+      <li><%= link_to person.name, person_path(person) %></li>
+    <% end %>
+  </ul>
+
+  <%= paginate @people, class: 'pagination justify-content-center' %>
+</div>
