@@ -1,4 +1,11 @@
 <h1>Starships</h1>
+<nav>
+  <ul>
+    <li><%= link_to 'People', people_path %></li>
+    <li><%= link_to 'Planets', planets_path %></li>
+    <li><%= link_to 'Starships', starships_path %></li>
+  </ul>
+</nav>
 <ul>
   <% @starships.each do |starship| %>
     <li><%= link_to starship.name, starship_path(starship) %></li>
