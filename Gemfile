@@ -22,6 +22,8 @@ gem "jbuilder"
 gem 'faker'
 # Add Pagination
 gem 'kaminari'
+# Add bootstrap
+gem 'bootstrap', '~> 5.0.0'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
