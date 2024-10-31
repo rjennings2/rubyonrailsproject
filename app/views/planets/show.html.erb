@@ -1,2 +1,10 @@
-<h1>Planets#show</h1>
-<p>Find me in app/views/planets/show.html.erb</p>
+<h1><%= @planet.name %></h1>
+<p>Diameter: <%= @planet.diameter %></p>
+<p>Climate: <%= @planet.climate %></p>
+<h2>Inhabitants</h2>
+<ul>
+  <% @planet.people.each do |person| %>
+    <li><%= link_to person.name, person_path(person) %></li>
+  <% end %>
+</ul>
+<%= link_to 'Back', planets_path %>

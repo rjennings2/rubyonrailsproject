@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "starships/index"
+  get "starships/show"
   get "pages/about"
   get "planets/index"
   get "planets/show"
@@ -22,4 +24,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  root 'people#index'
+  resources :people, only: [:index, :show]
+  resources :planets, only: [:index, :show]
+  resources :starships, only: [:index, :show]
+  get 'about', to: 'pages#about'
 end

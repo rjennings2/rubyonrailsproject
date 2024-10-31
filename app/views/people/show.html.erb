@@ -1,2 +1,6 @@
-<h1>People#show</h1>
-<p>Find me in app/views/people/show.html.erb</p>
+<h1><%= @person.name %></h1>
+<p>Height: <%= @person.height %></p>
+<p>Mass: <%= @person.mass %></p>
+<p>Hair Color: <%= @person.hair_color %></p>
+<p>Homeworld: <%= @person.planet.name if @person.planet %></p>
+<%= link_to 'Back', people_path %>
