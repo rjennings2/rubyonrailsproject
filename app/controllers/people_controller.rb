@@ -9,6 +9,8 @@ class PeopleController < ApplicationController
     if params[:planet_id].present?
       @people = @people.where(planet_id: params[:planet_id])
     end
+
+    @people = @people.page(params[:page]).per(10)
   end
 
   def show
