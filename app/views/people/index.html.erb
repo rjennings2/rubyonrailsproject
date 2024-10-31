@@ -1,16 +1,15 @@
 <h1>People</h1>
-<%= form_tag people_path, method: :get do%>
+<%= form_tag people_path, method: :get do %>
   <%= label_tag :query, "Search People" %>
   <%= text_field_tag :query, params[:query] %>
   <%= submit_tag "Search" %>
 <% end %>
 <%= form_tag people_path, method: :get do %>
   <%= label_tag :planet_id, "Select Planet" %>
-  <%= slect_tag :planet_id, options_from_collection_for_select(Planet,all, :id, :name, params[:planet_id]) %>
+  <%= select_tag :planet_id, options_from_collection_for_select(Planet.all, :id, :name, params[:planet_id]) %>
   <%= submit_tag "Filter" %>
 <% end %>
 <ul>
-  <% @people = Person.all %>
   <% @people.each do |person| %>
     <li><%= link_to person.name, person_path(person) %></li>
   <% end %>
