@@ -1,2 +1,10 @@
-<h1>Starships#show</h1>
-<p>Find me in app/views/starships/show.html.erb</p>
+<h1><%= @starship.name %></h1>
+<p>Model: <%= @starship.model %></p>
+<p>Crew: <%= @starship.crew %></p>
+<h2>Crew Members</h2>
+<ul>
+  <% @starship.people.each do |person| %>
+    <li><%= person.name %></li>
+  <% end %>
+</ul>
+<%= link_to 'Back', starships_path %>
